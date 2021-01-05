@@ -1,0 +1,120 @@
+<div class="container">
+  <!-- main app container -->
+  <div class=" d-flex justify-content-center mt-4">
+    <div class="card m-3">
+      <h5 class="card-header">
+        <h3 class="h3 p-0 m-0"> Visitor Registration Form</h3>
+      </h5>
+      <div class="card-body">
+        <form [formGroup]="visitorForm"  (ngSubmit)="saveData()">
+          <!-- Name and Phone -->
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Name" formControlName="visitorName"
+              [ngClass]="{ 'is-invalid': submitted && f.visitorName.errors }" required>
+
+             <!-- Validations -->
+            <div *ngIf="submitted && f.visitorName.errors" class="invalid-feedback ml-1">
+                <div *ngIf="f.visitorName.errors.required">Visitor Name is required</div>
+            </div>
+
+            </div>
+            <div class="col">
+              <input type="phone" class="form-control" placeholder="Phone" formControlName="phoneNumber" required
+              [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
+
+              <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback ml-1">
+                <div *ngIf="f.phoneNumber.errors.required">Phone is required</div>
+            </div>
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="row mt-4">
+            <div class="col">
+              <textarea class="form-control " id="addressValidationTextarea" placeholder="Address" formControlName="address" required
+              [ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
+              <div *ngIf="submitted && f.address.errors" class="invalid-feedback ml-1">
+                <div *ngIf="f.address.errors.required">Address is required</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gender and Faculty -->
+          <div class="row mt-4 mb-4">
+            <div class="col">
+              <select id="inputState" class="form-control" formControlName="gender" required
+               [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                <option selected>Male</option>
+                <option>Female</option>
+                <option>Others</option>
+              </select>
+
+              <div *ngIf="submitted && f.gender.errors" class="invalid-feedback ml-1">
+                <div *ngIf="f.gender.errors.required">Gender is required</div>
+              </div>
+            </div>
+
+            <div class="col">
+              <select id="inputState1" class="form-control" formControlName="faculty" required
+               [ngClass]="{ 'is-invalid': submitted && f.faculty.errors }">
+                <option selected>Faculty...</option>
+                <option>Prasanth</option>
+              </select>
+
+              <div *ngIf="submitted && f.faculty.errors" class="invalid-feedback ml-1">
+                <div *ngIf="f.faculty.errors.required">Faculty is required</div>
+              </div>
+
+            </div>
+          </div>
+          <!-- Purpose -->
+          <div class="row mt-4 mb-4">
+            <div class="col">
+              <textarea class="form-control " id="purposeValidationTextarea" placeholder="Purpose" formControlName="purpose" required
+              [ngClass]="{ 'is-invalid': submitted && f.purpose.errors }"></textarea>
+
+              <div *ngIf="submitted && f.purpose.errors" class="invalid-feedback ml-1">
+                <div *ngIf="f.purpose.errors.required">Purpose is required</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- In and Out Timings -->
+          <div class="form-group row">
+            <label for="example-datetime-local-input" class="col-3 col-form-label">In - time</label>
+            <div class="col-9">
+              <input class="form-control" formControlName="inTime" required  type="datetime-local" value="2011-08-19T13:45:00"
+                id="example-datetime-local-input" [ngClass]="{ 'is-invalid': submitted && f.inTime.errors }">
+
+                <div *ngIf="submitted && f.inTime.errors" class="invalid-feedback ml-1">
+                  <div *ngIf="f.inTime.errors.required">InTime is required</div>
+                </div>
+
+            </div>
+          </div>
+
+          <div class="form-group row mb-4">
+            <label for="example-datetime-local-input" class="col-3 col-form-label">Out - time</label>
+            <div class="col-9">
+              <input class="form-control" formControlName="outTime" required  type="datetime-local" value="2011-08-19T13:45:00"
+                id="example-datetime-local-input1" [ngClass]="{ 'is-invalid': submitted && f.outTime.errors }">
+
+                <div *ngIf="submitted && f.outTime.errors" class="invalid-feedback ml-1">
+                  <div *ngIf="f.outTime.errors.required">OutTime is required</div>
+                </div>
+
+            </div>
+          </div>
+
+          <!-- Registration Area -->
+          <div class="text-center">
+            <button class="btn btn-primary mr-1" >Register</button>
+            <button class="btn btn-secondary"  (click)="reset()">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

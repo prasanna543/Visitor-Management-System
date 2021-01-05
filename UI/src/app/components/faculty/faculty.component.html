@@ -1,0 +1,97 @@
+<div class="container">
+  <!-- main app container -->
+  <div class=" d-flex justify-content-center mt-4">
+    <div class="card m-3">
+      <h5 class="card-header">
+        <h3 class="h3 p-0 m-0">Faculty Registration Form</h3>
+      </h5>
+      <div class="card-body">
+        <form [formGroup]="facultyForm"  (ngSubmit)="saveData()">
+          <!-- Name and department -->
+          <div class="row mt-3">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Name" formControlName="facultyName" required>
+              <!-- [ngClass]="{ 'is-invalid': submitted && f?.facultyName.errors }" -->
+
+              <!-- *ngIf ="facebook?.touched && facebook?.errors" -->
+
+
+             <!-- Validations -->
+            <div *ngIf="submitted && f?.facultyName.errors" class="invalid-feedback ml-1">
+                <div *ngIf="f?.facultyName.errors.required">Faculty  Name is required</div>
+            </div>
+            </div>
+
+            <div class="col">
+            <input type="text" class="form-control" placeholder="dept" formControlName="department" required
+              [ngClass]="{ 'is-invalid': submitted && f?.department.errors }">
+
+              <div *ngIf="submitted && f?.department.errors" class="invalid-feedback ml-1">
+                <div *ngIf="f?.department.errors.required">Department is required</div>
+            </div>
+            </div>
+          </div>
+          <!-- email and Gender -->
+          <div class="row mt-3">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="email" formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && f?.email.errors }" required>
+
+             <!-- Validations -->
+            <div *ngIf="submitted && f?.email.errors" class="invalid-feedback ml-1">
+                <div *ngIf="f?.email.errors.required">Email is required</div>
+            </div>
+            </div>
+
+            <div class="col">
+              <select id="inputState" class="form-control" formControlName="gender" required
+              [ngClass]="{ 'is-invalid': submitted && f?.gender.errors }">
+                <option selected>Male</option>
+                <option>Female</option>
+              </select>
+
+              <div *ngIf="submitted && f?.gender.errors" class="invalid-feedback ml-1">
+                <div *ngIf="f?.gender.errors.required">Gender is required</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- phone -->
+
+          <div class="row mt-4">
+            <div class="col">
+              <input type="Phone" class="form-control" placeholder="Phone" formControlName="phoneNumber"
+              [ngClass]="{ 'is-invalid': submitted && f?.address.errors }">
+
+              <div *ngIf="submitted && f?.phone.errors" class="invalid-feedback ml-1">
+                <div *ngIf="f?.phone.errors.required">Phone is required</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="row mt-4">
+            <div class="col">
+              <textarea class="form-control " id="validationTextarea" placeholder="Address" formControlName="address" required
+              [ngClass]="{ 'is-invalid': submitted && f?.address.errors }"></textarea>
+
+              <div *ngIf="submitted && f?.address.errors" class="invalid-feedback ml-1">
+                <div *ngIf="f?.address.errors.required">Address is required</div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- Registration Area -->
+          <div class="text-center mt-2">
+            <button class="btn btn-primary mr-1" >Register</button>
+            <button class="btn btn-secondary"  (click)="reset()">Reset</button>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
