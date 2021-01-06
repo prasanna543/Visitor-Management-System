@@ -1,0 +1,36 @@
+<div class="container mt-3">
+    <div class="row ">
+        <div class="col ">
+            <h3>Faculty Information</h3>
+        </div>
+    </div>
+    <div class="table-responsive-sm mt-2">
+        <table class="table table-sm table-hover table-bordered ">
+            <thead>
+              <tr class="table-primary">
+                <th scope="col">S No</th>
+                <th scope="col">Faculty Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email</th>
+                <th scope="col">Department</th>
+                <th scope="col">Address</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let faculty of facultyList; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{faculty.facultyName}}</td>
+                <td>{{faculty.phoneNumber}}</td>
+                <td>{{faculty.email}}</td>
+                <td>{{faculty.department}}</td>
+                <td>{{faculty.address}}</td>
+                <td>{{faculty.gender}}</td>
+                <td><button class="btn btn-primary" (click)="onDelete(faculty)">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+

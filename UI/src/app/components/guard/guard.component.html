@@ -46,8 +46,8 @@
             <div class="col">
               <select id="inputState" class="form-control" formControlName="gender" required
               [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
-                <option selected>Male</option>
-                <option>Female</option>
+                <option value="null">Select Gender</option>
+                <option *ngFor="let gender of genderList">{{gender.gender}}</option>
               </select>
 
               <div *ngIf="submitted && f.gender.errors" class="invalid-feedback ml-1">
@@ -59,8 +59,8 @@
 
           <!-- Registration Area -->
           <div class="text-center">
-            <button class="btn btn-primary mr-1" >Register</button>
-            <button class="btn btn-secondary"  (click)="reset()">Reset</button>
+            <button class="btn btn-primary mr-1" [disabled] = !guardForm.valid >Save</button>
+            <button class="btn btn-secondary"  type="reset">Reset</button>
           </div>
       </form>
       </div>

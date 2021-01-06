@@ -1,0 +1,31 @@
+
+<div class="container">
+    <!-- main app container -->
+    
+    <div class=" d-flex justify-content-center mt-4">
+      <div class="card m-3">
+        <h5 class="card-header">
+          <h3 class="h3 p-0 m-0">Please Login...</h3>
+        </h5>
+        <div class="card-body">
+          <form [formGroup]="loginForm"  (ngSubmit)="submitForm()">
+            <!-- Name and Phone -->
+            <div class="row mt-3">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="User Name" formControlName="username" required>
+              </div>
+              <div class="col">
+                <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
+              </div>
+  
+            <!-- Registration Area -->
+            <div class="text-center">
+              <button class="btn btn-primary mr-1" [disabled] = !loginForm.valid >Login</button>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

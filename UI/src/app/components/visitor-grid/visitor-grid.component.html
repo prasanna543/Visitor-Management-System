@@ -1,0 +1,41 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <h3>Visitors Information</h3>
+        </div>
+    </div>
+    <div class="table-responsive-sm">
+        <table class="table table-sm table-hover table-bordered ">
+            <thead>
+              <tr class="table-primary">
+                <th scope="col">S No</th>
+                <th scope="col">Visitor Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Address</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Faculty</th>
+                <th scope="col">In Time</th>
+                <th scope="col">Out Time</th>
+                <th scope="col">Purpose</th>
+                <th scope="col">Action</th>
+             
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let visitor of visitorList; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{visitor.visitorName}}</td>
+                <td>{{visitor.phoneNumber}}</td>
+                <td>{{visitor.address}}</td>
+                <td>{{visitor.gender}}</td>
+                <td>{{visitor.faculty}}</td>
+                <td>{{visitor.inTime | date:"shortTime"}}</td>
+                <td>{{visitor.outTime | date:"shortTime"}}</td>
+                <td>{{visitor.purpose}}</td>
+                <td><button class="btn btn-primary" (click)="onDelete(visitor)">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+

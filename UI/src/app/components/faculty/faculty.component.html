@@ -10,12 +10,8 @@
           <!-- Name and department -->
           <div class="row mt-3">
             <div class="col">
-              <input type="text" class="form-control" placeholder="Name" formControlName="facultyName" required>
-              <!-- [ngClass]="{ 'is-invalid': submitted && f?.facultyName.errors }" -->
-
-              <!-- *ngIf ="facebook?.touched && facebook?.errors" -->
-
-
+              <input type="text" class="form-control" placeholder="Faculty Name" formControlName="facultyName" required>
+             
              <!-- Validations -->
             <div *ngIf="submitted && f?.facultyName.errors" class="invalid-feedback ml-1">
                 <div *ngIf="f?.facultyName.errors.required">Faculty  Name is required</div>
@@ -23,7 +19,7 @@
             </div>
 
             <div class="col">
-            <input type="text" class="form-control" placeholder="dept" formControlName="department" required
+            <input type="text" class="form-control" placeholder="Department" formControlName="department" required
               [ngClass]="{ 'is-invalid': submitted && f?.department.errors }">
 
               <div *ngIf="submitted && f?.department.errors" class="invalid-feedback ml-1">
@@ -34,7 +30,7 @@
           <!-- email and Gender -->
           <div class="row mt-3">
             <div class="col">
-              <input type="text" class="form-control" placeholder="email" formControlName="email"
+              <input type="text" class="form-control" placeholder="Email" formControlName="email"
               [ngClass]="{ 'is-invalid': submitted && f?.email.errors }" required>
 
              <!-- Validations -->
@@ -46,8 +42,8 @@
             <div class="col">
               <select id="inputState" class="form-control" formControlName="gender" required
               [ngClass]="{ 'is-invalid': submitted && f?.gender.errors }">
-                <option selected>Male</option>
-                <option>Female</option>
+                <option value="null">Select Gender</option>
+                <option *ngFor="let gender of genderList">{{gender.gender}}</option>
               </select>
 
               <div *ngIf="submitted && f?.gender.errors" class="invalid-feedback ml-1">
@@ -62,7 +58,7 @@
           <div class="row mt-4">
             <div class="col">
               <input type="Phone" class="form-control" placeholder="Phone" formControlName="phoneNumber"
-              [ngClass]="{ 'is-invalid': submitted && f?.address.errors }">
+              [ngClass]="{ 'is-invalid': submitted && f?.phoneNumber.errors }">
 
               <div *ngIf="submitted && f?.phone.errors" class="invalid-feedback ml-1">
                 <div *ngIf="f?.phone.errors.required">Phone is required</div>
@@ -87,7 +83,7 @@
 
           <!-- Registration Area -->
           <div class="text-center mt-2">
-            <button class="btn btn-primary mr-1" >Register</button>
+            <button class="btn btn-primary mr-1" [disabled] = !facultyForm.valid >Save</button>
             <button class="btn btn-secondary"  (click)="reset()">Reset</button>
           </div>
       </form>

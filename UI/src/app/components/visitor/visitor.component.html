@@ -45,9 +45,9 @@
             <div class="col">
               <select id="inputState" class="form-control" formControlName="gender" required
                [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
-                <option selected>Male</option>
-                <option>Female</option>
-                <option>Others</option>
+                <option value="null">Select Gender</option>
+                <option *ngFor="let gender of genderList">{{gender.gender}}</option>
+       
               </select>
 
               <div *ngIf="submitted && f.gender.errors" class="invalid-feedback ml-1">
@@ -59,7 +59,7 @@
               <select id="inputState1" class="form-control" formControlName="faculty" required
                [ngClass]="{ 'is-invalid': submitted && f.faculty.errors }">
                 <option selected>Faculty...</option>
-                <option>Prasanth</option>
+                <option *ngFor="let faculty of facultyNamesList">{{faculty}}</option>
               </select>
 
               <div *ngIf="submitted && f.faculty.errors" class="invalid-feedback ml-1">
@@ -110,8 +110,8 @@
 
           <!-- Registration Area -->
           <div class="text-center">
-            <button class="btn btn-primary mr-1" >Register</button>
-            <button class="btn btn-secondary"  (click)="reset()">Reset</button>
+            <button class="btn btn-primary mr-1" [disabled] = !visitorForm.valid>Register</button>
+            <button class="btn btn-secondary"  type="reset">Reset</button>
           </div>
         </form>
       </div>

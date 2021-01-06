@@ -22,11 +22,15 @@ export class VisitorService {
   //   return this.http.put(`${this.baseUrl}/${id}`, value);
   // }
 
-  // deleteEmployee(id: number): Observable<any> {
-  //   return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-  // }
+  deleteEmployee(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/remove/${id}`);
+  }
 
-  // getEmployeesList(): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}`);
-  // }
+  getEmployeesList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getVisitors`);
+  }
+
+  getFacultyList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getFacultyNames`);
+  }
 }

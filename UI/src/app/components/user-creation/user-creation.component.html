@@ -1,0 +1,79 @@
+<div class="container">
+    <!-- main app container -->
+    <div class="row ml-4">
+        <div class="card m-3">
+            <h5 class="card-header">
+                <h5 class=" p-0 m-0">User Registration Form</h5>
+            </h5>
+            <div class="card-body">
+                <form [formGroup]="userForm" (ngSubmit)="saveData()">
+
+                    <div class="row ">
+                        <div class="col mt-3">
+                            <select id="inputState" class="form-control" formControlName="username" required>
+                                <option value="null">Select User</option>
+                                <option *ngFor="let user of userList">{{user.guardName}}</option>
+                            </select>
+                        </div>
+
+                        <div class="col mt-3">
+                            <input type="password" class="form-control" placeholder="Password"
+                                formControlName="password" required>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col mt-3">
+                            <select id="inputState" class="form-control" formControlName="role" required>
+                                <option value="null">Select Role</option>
+                                <option *ngFor="let role of roleList">{{role.roleName}}</option>
+                            </select>
+                        </div>
+
+                        <div class="col mt-3">
+                            <div class="text-center">
+                                <button class="btn btn-primary mr-1" [disabled]=!userForm.valid>Sign Up</button>
+                                <button class="btn btn-secondary" type="reset">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row ml-4">
+            <div class="container mt-3">
+                <div class="row ">
+                    <div class="col ">
+                        <h4>Users Information</h4>
+                    </div>
+                </div>
+                <div class="table-responsive-sm mt-2">
+                    <table class="table table-sm table-hover table-bordered ">
+                        <thead>
+                            <tr class="table-primary">
+                                <th scope="col">S No</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">User Role</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of userGrid; let i = index">
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{user.username}}</td>
+                                <td>{{user.password}}</td>
+                                <td>{{user.role}}</td>
+                                <td><button class="btn btn-primary" (click)="onDelete(user)">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

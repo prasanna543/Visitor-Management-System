@@ -18,15 +18,11 @@ export class FacultyService {
     return this.http.post(`${this.baseUrl}/saveFaculty`, faculty);
   }
 
-  // updateEmployee(id: number, value: any): Observable<Object> {
-  //   return this.http.put(`${this.baseUrl}/${id}`, value);
-  // }
+  deleteFaculty(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/removeFaculty/${id}`);
+  }
 
-  // deleteEmployee(id: number): Observable<any> {
-  //   return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-  // }
-
-  // getEmployeesList(): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}`);
-  // }
+  getFacultyList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getFacultyList`);
+  }
 }

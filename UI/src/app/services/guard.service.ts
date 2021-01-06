@@ -18,15 +18,11 @@ export class GuardService {
     return this.http.post(`${this.baseUrl}/saveGuard`, guard);
   }
 
-  // updateEmployee(id: number, value: any): Observable<Object> {
-  //   return this.http.put(`${this.baseUrl}/${id}`, value);
-  // }
+  deleteGuard(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/removeGuard/${id}`);
+  }
 
-  // deleteEmployee(id: number): Observable<any> {
-  //   return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-  // }
-
-  // getEmployeesList(): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}`);
-  // }
+  getGuardList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getGuardList`);
+  }
 }

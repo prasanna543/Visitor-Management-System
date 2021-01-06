@@ -1,0 +1,30 @@
+<div class="container mt-3">
+    <div class="row ">
+        <div class="col ">
+            <h3>Guard Information</h3>
+        </div>
+    </div>
+    <div class="table-responsive-sm mt-2">
+        <table class="table table-sm table-hover table-bordered ">
+            <thead>
+              <tr class="table-primary">
+                <th scope="col">S No</th>
+                <th scope="col">Guard Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let guard of guardList; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{guard.guardName}}</td>
+                <td>{{guard.phoneNumber}}</td>
+                <td>{{guard.gender}}</td>
+                <td><button class="btn btn-primary" (click)="onDelete(guard)">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
